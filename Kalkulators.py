@@ -32,6 +32,7 @@ bnt2.grid(row=3,column=1)
 bnt3.grid(row=3,column=2)
 bnt0.grid(row=4,column=0)
 
+
 btnSum.grid(row=3,column=4)
 btnMin.grid(row=4,column=4)
 
