@@ -19,6 +19,30 @@ def btnCommand(command):
     e.delete(0,END)
     return 0
 
+def btnVienads():
+    global num2
+    num2=(int(e.get()))
+    result=0
+    if mathOp=="+":
+        result==num1+num2
+    elif mathOp=="-":
+        result==num1-num2
+    elif mathOp=="*":
+        result==num1*num2
+    elif mathOp=="/":
+        result==num1/num2
+    else:
+        result=0
+        e.delete(0,END)
+        e.insert(0,str(result))
+        return 0
+
+def nototit():
+    e.delete(0,END)
+    num1=0
+    mathOp=""
+    return 0
+
 e=Entry(mansLogs,width=15,font=("Arial Black",20))
 
 bnt0=Button(mansLogs,text="0",padx="40",pady="20",command=lambda:btnClick(0))
@@ -32,11 +56,11 @@ bnt7=Button(mansLogs,text="7",padx="40",pady="20",command=lambda:btnClick(7))
 bnt8=Button(mansLogs,text="8",padx="40",pady="20",command=lambda:btnClick(8))
 bnt9=Button(mansLogs,text="9",padx="40",pady="20",command=lambda:btnClick(9))
 
-btnSum=Button(mansLogs,text="+",padx="40",pady="20",command=lambda:btnCommand("+"))
-btnMin=Button(mansLogs,text="-",padx="40",pady="20",command=lambda:btnCommand("-"))
-btnDel=Button(mansLogs,text="C",padx="40",pady="20")
-btnDal=Button(mansLogs,text="/",padx="40",pady="20",command=lambda:btnCommand("/"))
-btnReiz=Button(mansLogs,text="*",padx="40",pady="20",command=lambda:btnCommand("*"))
+btnSum=Button(mansLogs,text="+",padx="40",pady="20",command=btnVienads("+"))
+btnMin=Button(mansLogs,text="-",padx="40",pady="20",command=btnVienads("-"))
+btnDel=Button(mansLogs,text="C",padx="40",pady="20",command=nototit)
+btnDal=Button(mansLogs,text="/",padx="40",pady="20",command=btnVienads("/"))
+btnReiz=Button(mansLogs,text="*",padx="40",pady="20",command=btnVienads("*"))
 btnVien=Button(mansLogs,text="=",padx="40",pady="20")
 
 bnt7.grid(row=1,column=0)
