@@ -1,5 +1,8 @@
 from argparse import MetavarTypeHelpFormatter
+from ast import operator
+from distutils import command
 from tkinter import*
+from math import*
 mansLogs=Tk()
 mansLogs.title("Kalkulators")
 #mansLogs.geometry("300x300")
@@ -15,7 +18,7 @@ def btnCommand(command):
     global num1
     global mathOp 
     mathOp= command
-    num1=int(e.get())
+    num1=float(e.get())
     e.delete(0,END)
     return 0
 
@@ -24,23 +27,41 @@ def btnVienads():
     num2=(int(e.get()))
     result=0
     if mathOp=="+":
-        result==num1+num2
+        result=num1+num2
     elif mathOp=="-":
-        result==num1-num2
+        result=num1-num2
     elif mathOp=="*":
-        result==num1*num2
+        result=num1*num2
     elif mathOp=="/":
-        result==num1/num2
+        result=num1/num2
     else:
         result=0
-        e.delete(0,END)
-        e.insert(0,str(result))
-        return 0
+    e.delete(0,END)
+    e.insert(0,str(result))
+    return 0
 
-def nototit():
+def notirit():
     e.delete(0,END)
     num1=0
     mathOp=""
+    return 0
+
+def sakne():
+    global operator
+    global num1
+    num1=(float(e.get()))
+    num1=sqrt(num1)
+    e.delete(0,END)
+    e.insert(0,num1)
+    return 0
+
+def loga():
+    global operator
+    global num1
+    num1=(float(e.get()))
+    num1=log(num1,10)
+    e.delete(0,END)
+    e.insert(0,num1)
     return 0
 
 e=Entry(mansLogs,width=15,font=("Arial Black",20))
@@ -56,13 +77,15 @@ bnt7=Button(mansLogs,text="7",padx="40",pady="20",command=lambda:btnClick(7))
 bnt8=Button(mansLogs,text="8",padx="40",pady="20",command=lambda:btnClick(8))
 bnt9=Button(mansLogs,text="9",padx="40",pady="20",command=lambda:btnClick(9))
 
-btnSum=Button(mansLogs,text="+",padx="40",pady="20",command=btnVienads("+"))
-btnMin=Button(mansLogs,text="-",padx="40",pady="20",command=btnVienads("-"))
-btnDel=Button(mansLogs,text="C",padx="40",pady="20",command=nototit)
-btnDal=Button(mansLogs,text="/",padx="40",pady="20",command=btnVienads("/"))
-btnReiz=Button(mansLogs,text="*",padx="40",pady="20",command=btnVienads("*"))
-btnVien=Button(mansLogs,text="=",padx="40",pady="20")
-
+btnSum=Button(mansLogs,text="+",padx="40",pady="20",command=lambda:btnCommand("+"))
+btnMin=Button(mansLogs,text="-",padx="40",pady="20",command=lambda:btnCommand("-"))
+btnDel=Button(mansLogs,text="C",padx="40",pady="20",command=notirit)
+btnDal=Button(mansLogs,text="/",padx="40",pady="20",command=lambda:btnCommand("/"))
+btnReiz=Button(mansLogs,text="*",padx="40",pady="20",command=lambda:btnCommand("*"))
+btnVien=Button(mansLogs,text="=",padx="40",pady="20",command=btnVienads)
+btnKv=Button(mansLogs,text="x²",padx="40",pady="20")
+btnSak=Button(mansLogs,text="√",padx="40",pady="20",command=sakne)
+btnLog=Button(mansLogs,text="log",padx="40",pady="20",command=loga)
 bnt7.grid(row=1,column=0)
 bnt8.grid(row=1,column=1)
 bnt9.grid(row=1,column=2)
@@ -81,8 +104,11 @@ btnDel.grid(row=4,column=0)
 btnVien.grid(row=4,column=2)
 btnDal.grid(row=1,column=4)
 btnReiz.grid(row=2,column=4)
+btnSak.grid(row=1,column=5)
+btnKv.grid(row=2,column=5)
+btnLog.grid(row=3,column=5)
 
-e.grid(row=0,column=0,columnspan=5)
+e.grid(row=0,column=0,columnspan=6)
 
 
 mansLogs.mainloop()
