@@ -34,6 +34,8 @@ def btnVienads():
         result=num1*num2
     elif mathOp=="/":
         result=num1/num2
+    elif mathOp=="%":
+        result=num1*0.01*num2
     else:
         result=0
     e.delete(0,END)
@@ -64,7 +66,15 @@ def loga():
     e.insert(0,num1)
     return 0
 
-e=Entry(mansLogs,width=15,font=("Arial Black",20))
+def kvad():
+    global num1 
+    num1=float(e.get())
+    num2=num1*num1
+    e.delete(0,END)
+    e.insert(0,num2)
+
+
+e=Entry(mansLogs,width=15,bd=20,font=("Arial Black",20))
 
 bnt0=Button(mansLogs,text="0",padx="40",pady="20",command=lambda:btnClick(0))
 bnt1=Button(mansLogs,text="1",padx="40",pady="20",command=lambda:btnClick(1))
@@ -83,9 +93,11 @@ btnDel=Button(mansLogs,text="C",padx="40",pady="20",command=notirit)
 btnDal=Button(mansLogs,text="/",padx="40",pady="20",command=lambda:btnCommand("/"))
 btnReiz=Button(mansLogs,text="*",padx="40",pady="20",command=lambda:btnCommand("*"))
 btnVien=Button(mansLogs,text="=",padx="40",pady="20",command=btnVienads)
-btnKv=Button(mansLogs,text="x²",padx="40",pady="20")
+btnKv=Button(mansLogs,text="x²",padx="40",pady="20",command=kvad)
 btnSak=Button(mansLogs,text="√",padx="40",pady="20",command=sakne)
-btnLog=Button(mansLogs,text="log",padx="40",pady="20",command=loga)
+btnLog=Button(mansLogs,text="log",padx="35",pady="20",command=loga)
+btnProc=Button(mansLogs,text="%",padx="40",pady="20",command=lambda:btnCommand("%"))
+
 bnt7.grid(row=1,column=0)
 bnt8.grid(row=1,column=1)
 bnt9.grid(row=1,column=2)
@@ -104,9 +116,10 @@ btnDel.grid(row=4,column=0)
 btnVien.grid(row=4,column=2)
 btnDal.grid(row=1,column=4)
 btnReiz.grid(row=2,column=4)
-btnSak.grid(row=1,column=5)
-btnKv.grid(row=2,column=5)
-btnLog.grid(row=3,column=5)
+btnSak.grid(row=5,column=0)
+btnKv.grid(row=5,column=1)
+btnLog.grid(row=5,column=2)
+btnProc.grid(row=5,column=4)
 
 e.grid(row=0,column=0,columnspan=6)
 
