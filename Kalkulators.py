@@ -6,6 +6,7 @@ from math import*
 mansLogs=Tk()
 mansLogs.title("Kalkulators")
 #mansLogs.geometry("300x300")
+mansLogs.configure(bg="black")
 
 def btnClick(number):
     current=e.get()#nolasa skaitli
@@ -13,6 +14,11 @@ def btnClick(number):
     newNumber=str(current)+str(number)
     e.insert(0,newNumber)#izvade displejs
     return 0
+
+mansLogs.attributes('-toolwindow', True)
+
+
+
 
 def btnCommand(command):
     global num1
@@ -74,29 +80,30 @@ def kvad():
     e.insert(0,num2)
 
 
-e=Entry(mansLogs,width=15,bd=20,font=("Arial Black",20))
+e=Entry(mansLogs,width=15,bd=20,bg="Royal Blue4",font=("Arial Black",20))
 
-bnt0=Button(mansLogs,text="0",padx="40",pady="20",command=lambda:btnClick(0))
-bnt1=Button(mansLogs,text="1",padx="40",pady="20",command=lambda:btnClick(1))
-bnt2=Button(mansLogs,text="2",padx="40",pady="20",command=lambda:btnClick(2))
-bnt3=Button(mansLogs,text="3",padx="40",pady="20",command=lambda:btnClick(3))
-bnt4=Button(mansLogs,text="4",padx="40",pady="20",command=lambda:btnClick(4))
-bnt5=Button(mansLogs,text="5",padx="40",pady="20",command=lambda:btnClick(5))
-bnt6=Button(mansLogs,text="6",padx="40",pady="20",command=lambda:btnClick(6))
-bnt7=Button(mansLogs,text="7",padx="40",pady="20",command=lambda:btnClick(7))
-bnt8=Button(mansLogs,text="8",padx="40",pady="20",command=lambda:btnClick(8))
-bnt9=Button(mansLogs,text="9",padx="40",pady="20",command=lambda:btnClick(9))
 
-btnSum=Button(mansLogs,text="+",padx="40",pady="20",command=lambda:btnCommand("+"))
-btnMin=Button(mansLogs,text="-",padx="40",pady="20",command=lambda:btnCommand("-"))
-btnDel=Button(mansLogs,text="C",padx="40",pady="20",command=notirit)
-btnDal=Button(mansLogs,text="/",padx="40",pady="20",command=lambda:btnCommand("/"))
-btnReiz=Button(mansLogs,text="*",padx="40",pady="20",command=lambda:btnCommand("*"))
-btnVien=Button(mansLogs,text="=",padx="40",pady="20",command=btnVienads)
-btnKv=Button(mansLogs,text="x²",padx="40",pady="20",command=kvad)
-btnSak=Button(mansLogs,text="√",padx="40",pady="20",command=sakne)
-btnLog=Button(mansLogs,text="log",padx="35",pady="20",command=loga)
-btnProc=Button(mansLogs,text="%",padx="40",pady="20",command=lambda:btnCommand("%"))
+bnt0=Button(mansLogs,text="0",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(0))
+bnt1=Button(mansLogs,text="1",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(1))
+bnt2=Button(mansLogs,text="2",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(2))
+bnt3=Button(mansLogs,text="3",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(3))
+bnt4=Button(mansLogs,text="4",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(4))
+bnt5=Button(mansLogs,text="5",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(5))
+bnt6=Button(mansLogs,text="6",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(6))
+bnt7=Button(mansLogs,text="7",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(7))
+bnt8=Button(mansLogs,text="8",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(8))
+bnt9=Button(mansLogs,text="9",padx="40",pady="20",bg="NavajoWhite4",font=4,command=lambda:btnClick(9))
+
+btnSum=Button(mansLogs,text="+",padx="41",pady="20",bg="SteelBlue4",font=4,command=lambda:btnCommand("+"))
+btnMin=Button(mansLogs,text="-",padx="43",pady="20",bg="SteelBlue4",font=4,command=lambda:btnCommand("-"))
+btnDel=Button(mansLogs,text="C",padx="40",pady="20",bg="cadetblue",font=4,command=notirit)
+btnDal=Button(mansLogs,text="/",padx="43",pady="20",bg="SteelBlue4",font=4,command=lambda:btnCommand("/"))
+btnReiz=Button(mansLogs,text="*",padx="42",pady="20",bg="SteelBlue4",font=4,command=lambda:btnCommand("*"))
+btnVien=Button(mansLogs,text="=",padx="40",pady="20",bg="cadetblue",font=4,command=btnVienads)
+btnKv=Button(mansLogs,text="x²",padx="40",pady="20",bg="dark olive green",font=4,command=kvad)
+btnSak=Button(mansLogs,text="√",padx="43",pady="20",bg="dark olive green",font=4,command=sakne)
+btnLog=Button(mansLogs,text="log",padx="35",pady="20",bg="dark olive green",font=4,command=loga)
+btnProc=Button(mansLogs,text="%",padx="40",pady="20",bg="dark olive green",font=4,command=lambda:btnCommand("%"))
 
 bnt7.grid(row=1,column=0)
 bnt8.grid(row=1,column=1)
